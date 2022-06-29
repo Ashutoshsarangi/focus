@@ -2,24 +2,23 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
 name: Build and Deploy
-
 on:
   push:
     branches: [ "main" ]
 permissions:
   contents: write  
-
 jobs:
-  build:
-
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
     - uses: actions/checkout@v3
+    
     - name: Install and Build The Folder
     - run: npm ci
     - run: npm run build 
     - run: npm test
+    
     - name: Deploy to Github
       uses: JamesIves/github-pages-deploy-action@v4
       with:
