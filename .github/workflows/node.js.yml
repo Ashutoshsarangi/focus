@@ -19,8 +19,4 @@ jobs:
     - run: npm run build 
     - run: npm test
     
-    - name: Deploy to Github
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-         folder: build # The folder the action should deploy.
 
